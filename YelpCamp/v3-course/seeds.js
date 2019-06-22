@@ -52,7 +52,7 @@ function seedDB() {
                 Comment.create(
                   {
                     text:
-                      "Black jack pirate lanyard haul wind port galleon gaff gun Letter of Marque parley. Transom Shiver me timbers chandler six pounders loot spike mizzen come about to go on account sutler. Lanyard long boat to go on account Shiver me timbers hulk poop deck reef sails scuttle scuppers galleon. Boom crack Jennys tea cup prow Admiral of the Black strike colors keel topmast lugger grog Pieces of Eight. Gabion interloper Pirate Round gaff aft crimp loot rope's end coxswain bring a spring upon her cable.",
+                      'Black jack pirate lanyard haul wind port galleon gaff gun Letter of Marque parley. Transom Shiver me timbers chandler six pounders loot spike mizzen come about to go on account sutler.',
                     author: 'Black Jack'
                   },
                   (err, comment) => {
@@ -60,8 +60,9 @@ function seedDB() {
                       console.log(err);
                     } else {
                       console.log('New comment has been created!');
-                      // Add a "comment" to "comments" array. (Note: It's not in the Campground Schema)
                       camp.comments.push(comment);
+                      // Don't forget to save. Because we just edited the newly created campground that already been saved ~
+                      // ~ and updating it without saving it will end up with new changes not getting stored to the DB.
                       camp.save((err, camp) => {
                         if (err) {
                           console.log(err);

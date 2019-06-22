@@ -20,6 +20,8 @@ db.once('open', () => {
   console.log('Database has been connected successfully!');
 });
 
+// Seed whenever the server restarts. The purpose is to use starter data to check the functionality ~
+// ~ and avoid cluttered data in the DB.
 seedDB();
 
 /* ========= FUNCTIONS ========= */
