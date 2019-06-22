@@ -1,0 +1,15 @@
+{
+  "name": "ExpressExercise",
+  "version": "1.0.0",
+  "description": "Express Basics Exercise - WebDevBootcamp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "YosepRA",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

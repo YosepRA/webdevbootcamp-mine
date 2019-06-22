@@ -1,0 +1,46 @@
+<% include partials/header %>
+
+<a href="/">Back to home</a>
+
+<h1>This is the Movies Page</h1>
+
+<p>This page will be where users search for movies.</p>
+
+<form action="/movies/s" method="get">
+  <label for="searchTitle">Search by Title: </label>
+  <input type="text" name="searchTitle" id="searchTitle"><br>
+  <input type="submit" value="Search">
+</form>
+
+
+<% if (movieData.Search.length !== 0) { %>
+  <% for (let i = 0; i < movieData.Search.length; i++) { %>
+    <% const movie = movieData.Search[i];  %>
+    <% const title = movie.Title.replace(/ /g, '_'); %>
+    <% const link = `/movies/m/${title}`; %>
+    <h2>
+      <a href="<%= link %>">
+        <%= movie.Title %>
+      </a>
+    </h2>
+  <% } %>
+<% } else { %>
+  <h2><%= movieData.Error %></h2>
+<% } %>
+
+<!-- if (movieData.Response === 'True') {
+  for (let i = 0; i < movieData.Search.length; i++) {
+    const movie = movieData.Search[i]; 
+    const title = movie.Title.replace(/ /g, '_');
+    const link = `/movies/m/${title}`;
+    <h2>
+      <a href="link">
+        movie.Title
+      </a>
+    </h2>
+  }
+} else {
+  <h2>movieData.Error</h2>
+} -->
+
+<% include partials/footer %>

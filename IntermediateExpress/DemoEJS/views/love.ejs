@@ -1,0 +1,13 @@
+<% include partials/header %>
+
+<h1>You are fall in love with: <%= thing %></h1>
+
+<% if (thing.toLowerCase() === 'miku') { %>
+<p>You are truly a member of The Church of Miku</p>
+<% } else { %>
+<p>You should rot in hell</p>
+<% } %>
+
+<p>That's some cute love you got there.</p>
+
+<% include partials/footer %>

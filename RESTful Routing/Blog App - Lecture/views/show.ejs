@@ -1,0 +1,51 @@
+<% include ./partials/header-opener %>
+
+<title><%= blog.title + ' | Blog App' %></title>
+
+<% include ./partials/header-closer %>
+
+<div class="ui text container segment">
+  <header class="ui header">
+    <h1><%= blog.title %></h1>
+  </header>
+  
+  <section class="ui top attached segment">
+    <div class="item">
+      <div class="image">
+        <img src="<%= blog.image %>" class="ui centered rounded large image" alt="">
+      </div>
+
+      <div class="ui divider"></div>
+
+      <div class="content">
+        <div class="meta">
+          <span><%= blog.created.toDateString() %></span>
+        </div>
+
+        <div class="ui divider"></div>
+
+        <div class="description">
+          <p><%= blog.body %></p>
+        </div>
+      </div>
+
+      <div class="ui divider"></div>
+
+      <div class="extra">
+        <a href="/blogs/<%= blog._id %>/edit" class="ui primary basic button">
+          <i class="file alternate outline icon"></i>
+          Edit Post
+        </a>
+        <form action="/blogs/<%= blog._id %>/?_method=DELETE" method="POST" class="ui form inline">
+          <button class="ui red basic button">
+            <i class="trash alternate icon"></i>
+            Delete Post
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<% include ./partials/footer %>

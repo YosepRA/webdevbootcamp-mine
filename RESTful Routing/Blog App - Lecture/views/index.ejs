@@ -1,0 +1,44 @@
+<% include ./partials/header-opener %>
+
+<title>Blogs</title>
+
+<% include ./partials/header-closer %>
+
+<div class="ui text container segment">
+  <header class="ui huge header">
+    <h1>RESTful Blog App</h1>
+  </header>
+  <div class="ui section divider"></div>
+  <main class="ui divided items">
+    <% blogs.forEach(blog => { %>
+      <article class="item">
+        <section class="image">
+          <img class="ui small image" src="<%= blog.image %>" alt="Blog Image">
+        </section>
+
+        <section class="middle aligned content">
+          <header class="header">
+            <a href="/blogs/<%= blog._id %>"><%= blog.title %></a>
+          </header>
+
+          <section class="meta">
+            <span><%= blog.created.toDateString() %></span>
+          </section>
+
+          <section class="description">
+            <p><%- blog.body.substring(0, 100) + '...' %></p>
+          </section>
+
+          <section class="extra">
+            <a href="/blogs/<%= blog._id %>" class="ui primary basic button">
+              Read More
+              <i class="caret right icon"></i>
+            </a>
+          </section>
+        </section>
+      </article>
+    <% }); %>
+  </main>
+</div>
+
+<% include ./partials/footer %>

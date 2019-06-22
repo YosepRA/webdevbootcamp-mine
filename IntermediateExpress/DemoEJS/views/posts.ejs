@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<h1>This is the posts page</h1>
+
+<% postsArr.forEach(function(post) {
+  let title = post.title;
+  let content = post.content; %>
+
+  <h1><%= title %></h1>
+  <p><%= content %></p>
+
+<% }); %>
+
+<% include partials/footer %>

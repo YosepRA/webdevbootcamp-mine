@@ -1,0 +1,41 @@
+<% include partials/header-opener %>
+
+<title>Blogs Page</title>
+
+<% include partials/header-closer %>
+
+<main>
+  <header>
+    <h1>Edit Blog Post</h1>
+  </header>
+  <section id="form">
+    <form action="/blogs" method="POST">
+      <p>
+        <label>
+          Title: 
+          <input type="text" name="title">
+        </label>
+      </p>
+      
+      <p>
+        <label>
+          Image: 
+          <input type="text" name="image">
+        </label>
+      </p>
+
+      <p>
+        <label>
+          Content:
+          <textarea name="content" cols="30" rows="5"></textarea>
+        </label>
+      </p>
+
+      <p>
+        <input type="submit" value="Create">
+      </p>
+    </form>
+  </section>
+</main>
+
+<% include partials/footer %>

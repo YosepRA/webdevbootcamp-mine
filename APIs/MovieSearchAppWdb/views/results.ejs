@@ -1,0 +1,25 @@
+<a href="/">Back to Home</a>
+
+<h1>This is the Result Page</h1>
+
+<form action="/results" method="get">
+  <input type="text" name="searchTitle" id="searchInput" placeholder="Search for Title">
+  <input type="submit" value="Search">
+</form>
+
+<% if (movieData.Response === 'True') {
+  movieData.Search.forEach(movie => {
+  const title = movie.Title;
+  const imdbID = movie.imdbID;
+  const link = `/movie/${imdbID}`; %>
+
+  <a href="<%= link %>">
+    <h2><%= movie.Title %></h2>
+  </a>
+
+  <% });
+} else { %>
+  <h2><%= movieData.Error %></h2>
+<% } %>
+
+

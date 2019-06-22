@@ -1,0 +1,14 @@
+<a href="/">Back to Home</a><br>
+<a href="/search">Back to Search</a>
+
+<% if (movieData.Response === 'True') { %>
+  <h1><%= movieData.Title %></h1>
+  <img 
+    src="<%= movieData.Poster %>" 
+    alt="Movie Poster" 
+    title="<%= movieData.Title %>" 
+    style="float: left; margin-right: 15px;">
+  <p><%= movieData.Plot %></p>
+<% } else { %>
+  <h2><%= movieData.Error %></h2>
+<% } %>

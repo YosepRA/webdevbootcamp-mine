@@ -1,0 +1,26 @@
+<% include partials/header %>
+
+<main>
+  <a href="/">Back to home</a>
+  <h1>This is the Forecast Page</h1>
+
+  <p>This page will show the weather forecast for the next few days.</p>
+
+  <% for (let i = 0; i < forecast.length; i++) {
+    let dailyData = forecast[i];
+    let time = new Date(dailyData.date * 1000);
+    let dateString = time.toDateString();
+    let lowestTemp = dailyData.low;
+    let highestTemp = dailyData.high;
+    let weather = dailyData.text; %>
+
+    <h2><%= dateString %></h2>
+    <p>Lowest Temperature: <%= lowestTemp %>&deg;C</p>
+    <p>Highest Temperature: <%= highestTemp %>&deg;C</p>
+    <p>Weather: <%= weather %></p>
+
+  <% } %>
+</main>
+
+
+<% include partials/footer %>

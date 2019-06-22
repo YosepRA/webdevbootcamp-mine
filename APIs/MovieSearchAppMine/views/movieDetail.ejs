@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+<a href="/">Back to home</a> <br>
+<a href="/movies">Back to Movie Search</a>
+
+<% if (movieData.Response === 'True') { %>
+  <h1><%= movieData.Title %></h1>
+  <img src="<%= movieData.Poster %>" 
+    alt="Movie Poster" 
+    title="<%= movieData.Title %>" 
+    style="float: left; margin-right: 10px;">
+  <p><%= movieData.Plot %></p>
+<% } else { %>
+  <h1><%= movieData.Error %></h1>
+<% } %>
+
+<% include partials/footer %>

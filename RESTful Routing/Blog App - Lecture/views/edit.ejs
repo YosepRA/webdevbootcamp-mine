@@ -1,0 +1,39 @@
+<% include ./partials/header-opener %>
+
+<title>Edit Blog | Blog App</title>
+
+<% include ./partials/header-closer %>
+
+<div class="ui text container">
+  <main class="ui segment">
+    <header class="ui header">
+      <h1>Edit Blog</h1>
+    </header>
+
+    <section id="newBlogForm">
+      <form action="/blogs/<%= blog._id %>?_method=PUT" method="POST" class="ui form">
+        <div class="field">
+          <label for="inputTitle">Title</label>
+          <input type="text" id="inputTitle" name="blog[title]" value="<%= blog.title %>" required>
+        </div>
+
+        <div class="field">
+          <label for="inputImage">Image</label>
+          <input type="text" id="inputImage" name="blog[image]" value="<%= blog.image %>" required>
+        </div>
+
+        <div class="field">
+          <label for="inputContent">Content</label>
+          <textarea name="blog[body]" id="inputContent" cols="30" rows="10" required><%= blog.body %></textarea>
+        </div>
+
+        <div class="field">
+          <input type="submit" class="ui primary button">
+        </div>
+
+      </form>
+    </section>
+  </main>
+</div>
+
+<% include ./partials/footer %>

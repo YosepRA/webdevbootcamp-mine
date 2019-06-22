@@ -1,0 +1,39 @@
+<% include ./partials/header-opener %>
+
+<title>Create New Blog | Blog App</title>
+
+<% include ./partials/header-closer %>
+
+<div class="ui text container">
+  <main class="ui segment">
+    <header class="ui header">
+      <h1>Create New Blog</h1>
+    </header>
+
+    <section id="newBlogForm">
+      <form action="/blogs" method="POST" class="ui form">
+        <div class="field">
+          <label for="inputTitle">Title</label>
+          <input type="text" id="inputTitle" name="blog[title]" placeholder="Title" required>
+        </div>
+
+        <div class="field">
+          <label for="inputImage">Image</label>
+          <input type="text" id="inputImage" name="blog[image]" placeholder="Image Link" required>
+        </div>
+
+        <div class="field">
+          <label for="inputContent">Content</label>
+          <textarea name="blog[body]" id="inputContent" cols="30" rows="10" placeholder="Content here..." required></textarea>
+        </div>
+
+        <div class="field">
+          <input type="submit" class="ui primary button">
+        </div>
+
+      </form>
+    </section>
+  </main>
+</div>
+
+<% include ./partials/footer %>
