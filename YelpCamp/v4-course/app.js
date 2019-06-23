@@ -21,13 +21,11 @@ db.once('open', () => {
   console.log('Database has been connected successfully!');
 });
 
-// Seed whenever the server restarts. The purpose is to use starter data to check the functionality ~
+// Seed whenever the server starts. The purpose is to use starter data to check the functionality ~
 // ~ and avoid cluttered data in the DB.
 seedDB();
 
 /* ========= ROUTES ========= */
-
-// Adding notes to each route about RESTful routes.
 
 app.get('/', (req, res) => {
   res.render('home');
@@ -40,16 +38,11 @@ app.get('/campgrounds', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('index', { campgrounds: campgrounds });
+      res.render('campgrounds/index', { campgrounds: campgrounds });
     }
   });
 });
 
-/* RESTful convention. 
-  * Set the route to show a list of items to be the same as 
-    the route to add a new item to the list.
-    e.g: .get('/friends') & .post('/friends')
-*/
 // RESTful CREATE Route: Create and add new campground to DB.
 app.post('/campgrounds', (req, res) => {
   // Get data from the form and add to campgrounds array.
@@ -59,23 +52,17 @@ app.post('/campgrounds', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      // Redirect back to campgrounds page.
       res.redirect('/campgrounds');
     }
   });
 });
 
-/* RESTful convention.
- * Set the route for new item form input to be "/item/new".
- */
 // RESTful NEW Route: Show a form to add new campground.
 app.get('/campgrounds/new', (req, res) => {
-  res.render('new');
+  res.render('campgrounds/new');
 });
 
 // RESTful SHOW Route: Show information about one campground.
-// Side Note: This route has to be defined below the NEW route. ~
-// ~ Or else '/campgrounds/new' will go to this route.
 app.get('/campgrounds/:id', (req, res) => {
   // Find the campground with provided ID
   const id = req.params.id;
@@ -87,7 +74,7 @@ app.get('/campgrounds/:id', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.render('show', { camp: camp });
+        res.render('campgrounds/show', { camp: camp });
       }
     });
 
@@ -96,7 +83,7 @@ app.get('/campgrounds/:id', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('show', { camp: camp });
+      res.render('campgrounds/show', { camp: camp });
     }
   }); */
 });
@@ -106,7 +93,15 @@ app.get('/campgrounds/:id', (req, res) => {
 // Comment NEW Route.
 // To show form for adding new comment.
 app.get('/campgrounds/:id/comments/new', (req, res) => {
-  res.render('newComment', { id: req.params.id });
+  const id = req.params.id;
+
+  Campground.findById(id, (err, camp) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('comments/new', { camp: camp });
+    }
+  });
 });
 
 // Comment CREATE Route.
@@ -120,19 +115,16 @@ app.post('/campgrounds/:id/comments', (req, res) => {
       console.log(err);
     } else {
       // Associate newly created Comment to particular Campground based on provided ID params.
-      // Find Campground.
       Campground.findById(campgroundID, (err, campground) => {
         if (err) {
           console.log(err);
         } else {
           // Add new Comment to "comments" array inside found campground data.
           campground.comments.push(comment);
-          // Save it.
           campground.save((err, campground) => {
             if (err) {
               console.log(err);
             } else {
-              // console.log('Data association is successfull!', campground);
               res.redirect('/campgrounds/' + campgroundID);
             }
           });
