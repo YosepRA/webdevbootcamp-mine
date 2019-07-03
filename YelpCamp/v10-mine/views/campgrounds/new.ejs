@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+
+<div class="container">
+  <section id="form">
+    <h1>Create a new Campground</h1>
+
+    <form action="/campgrounds" method="post" class="form-horizontal">
+      <div class="form-group">
+        <label for="campName" class="col-xs-2 col-md-3 control-label">Camp Name</label>
+        <div class="col-xs-8">
+          <input type="text" name="camp[name]" id="campName" class="form-control" placeholder="Enter Camp Name" autofocus>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="imageURL" class="col-xs-2 col-md-3 control-label">Image URL</label>
+        <div class="col-xs-8">
+          <input type="text" name="camp[image]" id="imageURL" class="form-control" placeholder="Enter Image URL">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="col-xs-2 col-md-3 control-label">Description</label>
+        <div class="col-xs-8">
+          <textarea name="camp[description]" id="description" class="form-control" cols="30" rows="5" placeholder="Enter description" aria-placeholder="Enter description"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-2 col-md-3"></div>
+        <div class="col-xs-8">
+          <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+      </div>
+    </form>
+  </section>
+</div>
+
+<% include ../partials/footer %>
