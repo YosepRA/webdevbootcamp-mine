@@ -1,0 +1,22 @@
+img {
+	width: 30%;
+	float: left;
+	margin: 1.66%;
+}
+
+p {
+	font-family: Raleway;
+	width: 20%;
+	margin: 20px auto;
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	border-bottom: 3px dashed black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	padding: 10px;
+}
+
+#gallery {
+	border-top: 1px solid black;
+}

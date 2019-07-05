@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Latest: Bootstrap v4.3.1 -->
+    <link rel="stylesheet" href="styles/bootstrap4.min.css">
+    <!-- Boostrap v3.3.7 -->
+    <!-- <link rel="stylesheet" href="styles/bootstrap3.min.css"> -->
+    
+    <!-- jQuery UI -->
+    <!-- <link rel="stylesheet" href="styles/jquery-ui.min.css"> -->
+
+    <!-- Custom CSS -->
+
+    <title>Array Problem Set</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Array Problem Set</h1>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="scripts/jquery.min.js"></script>
+    <!-- <script src="scripts/jquery-ui.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Latest: Bootstrap v4.3.1 -->    
+    <script src="scripts/bootstrap4.min.js"></script>
+    <!-- Bootstrap v3.3.7 -->
+    <!-- <script src="scripts/bootstrap3.min.js"></script> -->
+
+    <script>
+      var array1 = [1,2,3];
+      var array2 = [1,1,1];
+      var array3 = ['Don', 100, 50, 'Gilda'];
+
+      // printReverse(array)
+      // To print out the reversed version of any given array.
+      function printReverse(arr) {
+        // Method #1: mine
+        /* let reversed = arr.reverse();
+        reversed.forEach(function(item) {
+          console.log(item);
+        }); */
+
+        // Method #2: lecture
+        for (let i = arr.length - 1; i >= 0; i--) {
+          const element = arr[i];
+
+          console.log(element);
+        }
+      }
+
+      // isUniform(array)
+      // To check if every item inside an array are all similar.
+      function isUniform(arr) {
+        let firstItem = arr[0];
+        // let status = false;
+        
+        // BIG QUESTION #1: Why we cannot use this logic to .forEach() method?
+        // I use the same logic as the for-loop block just below. But the problem is... ~
+        arr.forEach(function(item) {
+          if (item !== firstItem) { 
+            return false; // ~ this return statement DOES NOT stop the loop from running. It somehow kept going and always return true ~
+            // ~ which came from the last statement of isUniform() function block.
+          }
+        });
+
+        // The very same logic applied to this for loop code block. And it worked just fine.
+        /* for (let i = 0; i < arr.length; i++) {
+          const element = arr[i];
+
+          if (element !== firstItem) { // If there is ever one non-identical value compared to the first item in an array ~
+            return false; // ~ STOP the function from running and return false.
+          }
+        } */
+        return true; // If every item passed the test inside the loop, return true.
+        // In regard of BIG QUESTION #1. If I remove this return statement, the function will return 'undefined'. It is obviously came from ~
+        // ~ one of the function's nature, which will return 'undefined' IF WE DO NOT PROVIDE ANY RETURN STATEMENT inside a function. ~
+        // ~ HYPOTHESIS: The .forEach() method above is actually does the statements inside of it. I tested it with console.log and it worked ~
+        // ~ But, the return statement inside of it doesn't stop the loop and isUniform() function from running. ~
+        // ~ So, my hypothesis is that .forEach() ~
+        // ~ method DOES run the function statement it assigned to. It ALSO STOPPED the loop INSIDE .forEach() and RETURN the false value ~
+        // ~ BACK TO THE STATEMENT whom called it. And that doesn't mean that return value will be returned back to the interpreter which ~
+        // ~ will STOP the function block from running. Thus, the result of isUniform() will ALWAYS return 'true' value because after the ~
+        // ~ .forEach() stopped running and return 'false' value back to its statement call, isUniform() code block will continue running ~
+        // ~ to the next statement which is 'return true;'. Thus, the result will always return true regardless of the data inside the ~
+        // ~ HYPOTHESIS END.
+
+
+        // SOLUTIONS for isUniform() is here:
+        // - BIG QUESTION #1: 
+      }
+
+      // sumArray(array-of-numbers)
+      // To return the total of every number inside a given array.
+      function sumArray(arr) {
+        let result = 0;
+        for (let i = 0; i < arr.length; i++) {
+          result += arr[i];
+        }
+        return result;
+      }
+
+      // max(array-of-numbers)
+      // To return the largest number inside a given array.
+      function max(arr) {
+        // ELITE WAY :D
+        /* var max = arr.reduce(function (a, b) {
+          return Math.max(a, b);
+        });
+        return max; */
+
+        /* ================================================================================================================================== */
+        
+        // Question #1: Why don't we set the initial to be zero? 
+        // (The answer will be at the SOLUTIONS comment block below this function block.)
+        // let max = 0;
+
+        let max;
+        let invalidArr = function() {
+          console.error('Please enter a valid array of numbers as an argument.');
+          // return; // Putting 'return' keyword here WILL NOT stop the function from running. Because this will return a value to the ~
+          // ~ statement which calls this function.
+        }
+
+        if (!isNaN(arr[0])) { // If the first value is a number.
+          max = arr[0] ; // Assign that number as the initial value and then later will be used to compare it to other array's elements.
+        } else { // If it isn't a number.
+          invalidArr(); // Call this function which will print a warning message and stop the function from running.
+          return; // Putting 'return' here WILL stop the function because it returns a value back to the "global environment/interpreter" ~
+          // ~ (I don't know what it's called).
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+          const num = arr[i];
+          
+          if (isNaN(num)) { // If the data inside the array is not a number.
+            invalidArr(); // Stop it from running.
+            return;
+          } else { // If it's a number.
+            if (num > max) { // Check if the number is higher than the current max number.
+              max = num; // If yes, replace it.
+            }
+          }
+        }
+
+        return max; // All check is done, then return the highest value. 
+
+
+        // SOLUTIONS ARE HERE:
+        // Question #1: If we set the initial value to be zero. If the array argument's is filled with negative numbers, this function will ~
+        // ~ return 0, which is incorrect. Because it should return the largest value of any given array, whether it will be an array of ~
+        // ~ positive numbers, negative numbers, or mix of both. The solution will be to assign the initial value to be the first item of ~
+        // ~ the array. There will be problems, so proceed to Question #2.
+        // Question #2: How to provide the correct value as the initial value?
+        // Answer Question #2: There will be possibilities of an invalid array. If the provided array contains data that is not a number(NaN) ~
+        // ~ we need to stop the function from running and provide feedback. And because we assign the initial value to be the first value ~
+        // ~ of the array, then we need to make sure that the first item is a valid number. If it is a NaN, there will be an error in the ~
+        // ~ main loop. We provide two NaN checks in this function, one is at defining initial value, and two is inside the loop. The second ~
+        // ~ NaN check is to make sure we are comparing a number to another number. Sure there will be an issue if a user needs to find ~
+        // ~ the maximum number inside a mixed array(array containing data other than numbers). But that will be another function. Because ~
+        // ~ this function main objective is to find the largest number inside an array of numbers.
+        // SOLUTIONS END.
+      }
+
+      /* ================================================================================================================================== */
+
+      // BONUS PROBLEM: Recreate Array.prototype.forEach() method. (nailed it)
+      // forEachItem(array, function)
+      // Loop through each item in a given array and call the given function to array's elements.
+      function forEachItem(arr, handler) {
+        for (let i = 0; i < arr.length; i++) {
+          const element = arr[i];
+          handler(element, i); // Call function handler to each item in an array and give its element and index number as an argument.
+        }
+      }
+
+      Array.prototype.forEachItem = function(handler) {
+        for (let i = 0; i < this.length; i++) {
+          const element = this[i];
+          handler(element, i); 
+        }
+      };
+      
+      // printAll(arr)
+      // Print all item in a given array.
+      // Note: this is for testing forEachItem() function. Does it do the same as array.forEach() method?
+      function printAll(arr) {
+        /* forEachItem(arr, function(item, index) { // We provide an array and a function to apply to each item. 
+          console.log(index + ': ' + item);
+        }); */
+        
+        // Using .forEachItem() as a method of Array object's prototype.
+        arr.forEachItem(function(item, index) {
+          console.log(index + ': ' + item);
+        });
+      }
+    </script>
+  </body>
+</html>

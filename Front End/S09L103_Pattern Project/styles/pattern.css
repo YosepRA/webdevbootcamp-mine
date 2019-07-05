@@ -1,0 +1,21 @@
+
+
+body {
+  background-color: #e2efff;
+}
+
+.row {
+  margin-bottom: 100px;
+}
+
+.card {
+  background-color: #f2f8ff;
+}
+
+.jumbotron {
+  background-image: url(../images/header.jpeg);
+  background-position: center 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+

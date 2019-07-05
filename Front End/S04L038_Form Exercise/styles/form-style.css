@@ -1,0 +1,41 @@
+body {
+	font-size: medium;
+	font-family: sans-serif;
+	color: white;
+	font-weight: bold;
+}
+
+form {
+	display: table;
+	border-spacing: 20px;
+	vertical-align: top;
+	margin: 0px auto;
+}
+
+main {
+	margin: 20px auto;
+	padding: 10px;
+	width: 600px;
+	background-color: #0061ff;
+	/*border: thin solid black;*/
+}
+
+header {
+	/*margin: 10px;*/
+	padding: 20px 50px;
+	background-color: #003999;
+	text-decoration: underline;
+	/*border: 1px solid #004ece;*/
+}
+
+.tableRow {
+	display: table-row;
+}
+
+.tableRow p {
+	display: table-cell;
+}
+
+.tableRow p:first-child {
+	text-align: right;
+}

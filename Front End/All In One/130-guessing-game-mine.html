@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Latest: Bootstrap v4.3.1 -->
+    <link rel="stylesheet" href="styles/bootstrap4.min.css">
+    <!-- Boostrap v3.3.7 -->
+    <!-- <link rel="stylesheet" href="styles/bootstrap3.min.css"> -->
+    
+    <!-- jQuery UI -->
+    <!-- <link rel="stylesheet" href="styles/jquery-ui.min.css"> -->
+
+    <!-- Custom CSS -->
+
+    <title>Guessing Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Guessing Game</h1>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="scripts/jquery.min.js"></script>
+    <!-- <script src="scripts/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <!-- Latest: Bootstrap v4.3.1 -->    
+    <script src="scripts/bootstrap4.min.js"></script>
+    <!-- Bootstrap v3.3.7 -->
+    <!-- <script src="scripts/bootstrap3.min.js"></script> -->
+
+    <script>
+      var randNum = Math.floor((Math.random() * 10) + 1);
+      console.log(randNum);
+      var guessStatus = false;
+      // guess = prompt('Guess the number between 1-10!');
+
+      while (!guessStatus) {
+        let stringGuess = prompt('Guess the number! (1-10)');
+        let guess = Number(stringGuess);
+
+        if (guess < 1 || guess > 10) {
+          alert("Please enter a valid number! (1-10)")
+          continue;
+        }
+
+        if (guess === randNum) {
+          alert('Congratulation!');
+          guessStatus = true;
+        } else if (guess > randNum) {
+          alert('Too High');
+        } else if (guess < randNum) {
+          alert('Too Low');
+        }
+
+        /* console.log(guess);
+        let lastDiff = lastGuess - randNum;
+        let currentDiff = guess - randNum;
+
+        if (lastDiff < 0) {
+          lastDiff = lastDiff * (-1);
+        }
+
+        if (currentDiff < 0) {
+          currentDiff = currentDiff * (-1);
+        }
+        
+        if (currentDiff < lastDiff) {
+          console.log('WARMER');
+        } else if (currentDiff > lastDiff) {
+          console.log('COLDER');
+        } else if (currentDiff <= 2) {
+          console.log('WARM');
+        } else if (currentDiff > 2) {
+          console.log('COLD');
+        } else {
+          console.log('Congratulation! You guessed it right.');
+          guessStatus = true;
+        } 
+
+        lastGuess = guess; */
+      }
+
+      // Note:
+      // randNum = 5;
+      // Case 1: Guess1 -> 7; Guess2 -> 6; Result Warmer;
+      // Case 2: Guess1 -> 3; Guess2 -> 4; Result Warmer;
+      // If currentGuess is CLOSER to randNum than LastGuess -> Warmer; and Colder otherwise.
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Latest: Bootstrap v4.3.1 -->
+    <!-- <link rel="stylesheet" href="lib/styles/bootstrap4.min.css"> -->
+    <!-- Boostrap v3.3.7 -->
+    <!-- <link rel="stylesheet" href="lib/styles/bootstrap3.min.css"> -->
+    
+    <!-- jQuery UI -->
+    <!-- <link rel="stylesheet" href="lib/styles/jquery-ui.min.css"> -->
+
+    <!-- Custom CSS -->
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0px;
+      }
+
+      canvas {
+        width: 100%;
+        background-color: black;
+      }
+    </style>
+
+    <title>Title</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="myCanvas" resize></canvas>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="lib/scripts/jquery.min.js"></script> -->
+    <!-- <script src="lib/scripts/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <!-- Latest: Bootstrap v4.3.1 -->    
+    <!-- <script src="lib/scripts/bootstrap4.min.js"></script> -->
+    <!-- Bootstrap v3.3.7 -->
+    <!-- <script src="lib/scripts/bootstrap3.min.js"></script> -->
+    <script src="lib/scripts/paper-full.min.js"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+      var path = new Path();
+      path.strokeColor = 'white';
+
+      var start = new Point(100, 100);
+      path.moveTo(start);
+
+      path.lineTo(start + [200, 100]);
+
+      // Creating circles
+      var myCircleCenter = new Point(500, 300);
+      var myCircle = new Path.Circle(myCircleCenter, 100);
+      // myCircle.fillColor = 'pink';
+      myCircle.strokeColor = 'red';
+      myCircle.strokeWidth = '20';
+
+      // Path 1
+      var pathOne = new Path();
+      pathOne.strokeColor = 'blue';
+      pathOne.strokeWidth = '3';  
+      pathOne.add(new Point(0, 0));
+      pathOne.add(new Point(100, 50));
+      pathOne.add(new Point(50, 200));
+      pathOne.add(new Point(300, 220));
+      pathOne.add(new Point(130, 320));
+      pathOne.add(new Point(330, 380));
+      pathOne.add(new Point(480, 410));
+    </script>
+  </body>
+</html>

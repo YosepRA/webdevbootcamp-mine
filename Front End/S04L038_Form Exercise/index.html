@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Registration Page</title>
+	<link rel="stylesheet" type="text/css" href="styles/form-style.css">
+</head>
+<body>
+	<main>
+		<header>
+			<h1>Registration</h1>
+		</header>
+
+		<hr>
+
+		<form method="post">
+			<div class="tableRow">	
+				<p>Your name: </p>
+				<p>
+					<label for="firstName"></label>
+					<input id="firstName" type="text" name="firstName" placeholder="First Name" required>
+					<label for="lastName"></label>
+					<input id="lastName" type="text" name="lastName" placeholder="Last Name" required>
+				</p>
+			</div>
+
+			<div class="tableRow">
+				<p>Gender:</p>
+				<p>
+					<input id="male" type="radio" name="gender" value="male" required>
+					<label for="male">Male</label>
+					<input type="radio" name="gender" value="female" required>
+					<label for="female">Female</label>
+					<input type="radio" name="gender" value="other" required>
+					<label for="other">Other</label>
+				</p>
+			</div>
+
+			<div class="tableRow">
+				<p>Email &amp; Password: </p>
+				<p>
+					<label for="email"></label>	
+					<input id="email" type="email" name="email" placeholder="your_email@domain.com">
+					<label for="password"></label>
+					<input id="password" type="password" name="password" placeholder="Password" required pattern=".{4,}" title="Password must be 4 characters minimum">
+				</p>
+			</div>
+
+			<div class="tableRow">	
+				<p>Birthday Date:</p>
+				<p>
+					<label for="birthday"></label>
+					<input id="birthday" type="date" name="birthday" required>
+				</p>
+			</div>
+
+			<div class="tableRow">	
+				<p>I agree to the terms<br> and conditions</p>
+				<p>
+					<label for="agreement"></label>
+					<input id="agreement" type="checkbox" name="terms" value="agreed" required>
+				</p>
+			</div>
+
+			<div class="tableRow">	
+				<p></p>
+				<p>
+					<label for="submit"></label>
+					<input id="submit" type="submit" value="Submit">
+				</p>
+			</div>
+		</form>
+	</main>
+</body>
+</html>

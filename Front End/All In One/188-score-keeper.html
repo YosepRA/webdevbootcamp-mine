@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Latest: Bootstrap v4.3.1 -->
+    <link rel="stylesheet" href="styles/bootstrap4.min.css">
+    <!-- Boostrap v3.3.7 -->
+    <!-- <link rel="stylesheet" href="styles/bootstrap3.min.css"> -->
+    
+    <!-- jQuery UI -->
+    <!-- <link rel="stylesheet" href="styles/jquery-ui.min.css"> -->
+
+    <!-- Custom CSS -->
+    <style>
+      .done {
+        color: green;
+      }
+
+      input[type="number"] {
+        width: 220px;
+      }
+    </style>
+
+    <title>Score Keeper</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Score Keeper</h1>
+
+      <h2><span id="scoreOne">0</span> to <span id="scoreTwo">0</span></h2>
+      
+      <p>Playing to: <span>5</span></p>
+
+      <input type="number" placeholder="Enter Max Score (default: 5)"> 
+      <button id="btnOne">Player One</button>
+      <button id="btnTwo">Player Two</button>
+      <button id="btnReset">Reset</button>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="scripts/jquery.min.js"></script>
+    <!-- <script src="scripts/jquery-ui.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Latest: Bootstrap v4.3.1 -->    
+    <script src="scripts/bootstrap4.min.js"></script>
+    <!-- Bootstrap v3.3.7 -->
+    <!-- <script src="scripts/bootstrap3.min.js"></script> -->
+
+    <script>
+      (function() {
+        /* ============================= VARIABLE INITIALIZATION START ============================= */
+
+        // Player's score incremented by 1 when its respective button was clicked. And display it onto its scoreboard element representative.
+        var container = document.querySelector('.container');
+        // Scoreboard
+        var elScoreOne = document.getElementById('scoreOne');
+        var elScoreTwo = document.getElementById('scoreTwo');
+        
+        // Score Count
+        var scoreOne = 0;
+        var scoreTwo = 0;
+        // Max Score
+        var elMaxScore = document.querySelector('.container p span') // Max score view on the page.
+        var elMaxScoreInput = document.querySelector('input[type="number"]');
+        var maxScore = 5;
+
+        /* ============================= VARIABLE INITIALIZATION END ============================= */
+        /* ============================= EVENT ASSIGNMENT START ============================= */
+
+        // Assigning click event on container div. Primarily for click events on buttons.
+        container.addEventListener('click', function(event) {
+          let target = event.target;
+
+          if (target.id === 'btnOne' || target.id === 'btnTwo') {
+            if (scoreOne == maxScore || scoreTwo == maxScore) {  // If scoreOne OR scoreTwo have reach the maxScore, ~
+              alert('The game has ended. Press "RESET" button to restart.');
+              return; // ~ stop the page interaction by returning nothing to the interpreter.
+            } else { // and continue the program otherwise.
+              // Update the score.
+              addScore(target);
+            }
+          } else if (target.id === 'btnReset') {
+            // reset everything.
+            reset();
+          }
+        });
+
+        // Assigning 'input' event on text input element.
+        elMaxScoreInput.addEventListener('input', function() {
+          // Take the form's value
+          let value = Number(this.value); // We need 'number' datatype because it will later assigned to model variable. The type for model ~
+          // ~ has to be number.
+          
+          // Assign it to model and view.
+          maxScore = value;
+          elMaxScore.textContent = value;
+
+          // Reset the game as well. Because there will be a case where users are entering a new max score but the current scoreOne or ~
+          // ~ scoreTwo has already surpassed the maxScore. And thus will break the program because it won't end.
+          reset();
+        });
+
+        // Assigning 'blur' event on text input element.
+        elMaxScoreInput.addEventListener('blur', function() {
+          if (this.value <= 0) { // If the user entered invalid numbers which is zero or less, ~
+            maxScore = 5; // Reset to default score state.
+            elMaxScore.textContent = 5;
+          }
+          this.value = ''; // Empty the input field.
+        });
+
+        /* ============================= EVENT ASSIGNMENT END ============================= */
+        /* ============================= FUNCTIONS START ============================= */
+
+        // addScore(element)
+        // To update the score's view and model.
+        function addScore(el) {
+          let id = el.id;
+
+          if (id === 'btnOne') {
+            // increment scoreOne
+            scoreOne++;
+            elScoreOne.textContent = scoreOne;
+          } else if (id === 'btnTwo') {
+            // increment scoreTwo
+            scoreTwo++;
+            elScoreTwo.textContent = scoreTwo;
+          }
+
+          // Check if scoreOne OR scoreTwo have reached the maxScore and assign 'done' class if it's true.
+          if (scoreOne == maxScore) {
+            elScoreOne.classList.add('done');
+          } else if (scoreTwo == maxScore) {
+            elScoreTwo.classList.add('done');
+          }
+        }
+
+        // reset()
+        // To reset everything.
+        function reset() {
+          // reset model and view
+          // Scoreboard One
+          scoreOne = 0;
+          elScoreOne.textContent = scoreOne;
+          elScoreOne.classList.remove('done');
+
+          // Scoreboard Two
+          scoreTwo = 0;
+          elScoreTwo.textContent = scoreTwo;
+          elScoreTwo.classList.remove('done');
+
+          // Max Score
+          maxScore = 5;
+          elMaxScore.textContent = maxScore;
+          elMaxScoreInput.value = '';
+        }
+
+        /* ============================= FUNCTIONS END ============================= */
+      }());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+body {
+	font-family: sans-serif;
+}
+
+main {
+	width: 800px;
+	margin: 20px auto;
+	/*border: 2px solid red;*/
+}
+
+header {
+	width: 800px;
+	margin: 0px auto;
+	/*border: 2px solid blue;*/
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0px auto;
+}
+
+td {
+	border: 2px solid black;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+}
+
+.none {
+	border: none;
+}
+
+.horizontal {
+	border-left: none;
+	border-right: none;
+}
+
+.vertical {
+	border-top: none;
+	border-bottom: none;
+}

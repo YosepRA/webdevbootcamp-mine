@@ -1,0 +1,12 @@
+body {
+	font-size: small;
+}
+
+table#chart {
+	border: thin solid black;
+	border-collapse: collapse;
+}
+
+#chart td, #chart th {
+	border: thin dotted gray;
+}

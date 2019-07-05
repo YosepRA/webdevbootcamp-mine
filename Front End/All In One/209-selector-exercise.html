@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Latest: Bootstrap v4.3.1 -->
+    <link rel="stylesheet" href="lib/styles/bootstrap4.min.css">
+    <!-- Boostrap v3.3.7 -->
+    <!-- <link rel="stylesheet" href="lib/styles/bootstrap3.min.css"> -->
+    
+    <!-- jQuery UI -->
+    <!-- <link rel="stylesheet" href="lib/styles/jquery-ui.min.css"> -->
+
+    <!-- Custom CSS -->
+
+    <title>Selector Exercise</title>
+  </head>
+  <body>
+    
+    <div>Div 1</div>
+    <div class="highlight">Div 2</div>
+    <div id="third">Div 3</div>
+    <div class="highlight">Div 4</div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="lib/scripts/jquery.min.js"></script>
+    <!-- <script src="lib/scripts/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <!-- Latest: Bootstrap v4.3.1 -->    
+    <script src="lib/scripts/bootstrap4.min.js"></script>
+    <!-- Bootstrap v3.3.7 -->
+    <!-- <script src="lib/scripts/bootstrap3.min.js"></script> -->
+
+    <script>
+      (function() {
+        // Select all divs and give them a purple background.
+        $('div').css('background-color', 'purple');
+
+
+        // Select the divs with class "hightlight" and make them 200px wide.
+        $('div.highlight').css('width', '200px');
+
+
+        // Select the div with id "third" and give it an orange background.
+        $('#third').css({ // Just trying using object literal notation as argument.
+          border: '3px solid orange' // dashed CSS properties are camel-cased in both JavaScript element's property and jQuery.
+        });
+
+
+        // BONUS: Select the first div only and change its font color to pink.
+        // Trying two different way of choosing the first element. Both results are the same.
+        $('div:first-child').css('color', 'pink'); // Using pseudo-class selector.
+        // $('div').filter(':first-child').css('color', 'pink'); // Using jQuery's .filter() method and give a pseudo-class as its argument.
+      }());
+    </script>
+  </body>
+</html>

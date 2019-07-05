@@ -1,0 +1,95 @@
+body {
+  font-family: Nunito, sans-serif;
+  background: #dfd5d7;
+  /* padding-top: 5px; */
+}
+
+/* section.row > article {
+  padding: 0px 5rem;
+} */
+
+section.row article p {
+  line-height: 2.5rem;
+  margin-bottom: 3rem;
+  color: #ff5e83;
+}
+
+section.row article header {
+  color: #ff5e83;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+/* nav {
+  background-color: rgb(229, 185, 197, 0.8);
+} */
+
+@media (min-width: 0px) {
+  section.row > article {
+    padding: 0px 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  section.row > article {
+    padding: 0px 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  section.row article p.head {
+    font-size: 3rem;
+    font-weight: 200;
+    line-height: 2.8rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  section.row > article {
+    padding: 0px 7rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  section.row article p.head {
+    font-size: 4rem;
+    font-weight: 200;
+    line-height: 3.8rem;
+    color: white;
+  }
+}
+
+section.row article p.head span.redSlash {
+  color: #ff5e83;
+}
+
+.row {
+  margin-bottom: 5rem;
+}
+
+.navbar, .navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ff5e83; 
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand:hover {
+  color: #ff5e83;
+}
+
+.navbar.scrolled {
+  background-color: rgb(229, 185, 197, 0.8);
+  transition: background 300ms;
+}
+
+/* main section:first-child article {
+  padding-top: 4rem;  
+} */

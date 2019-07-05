@@ -1,0 +1,62 @@
+/*Background Image Link
+https://images.unsplash.com/photo-1500879747858-bb1845b61beb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80*/
+html {
+	height: 100%;
+}
+
+body {
+	background: url(https://images.unsplash.com/photo-1500879747858-bb1845b61beb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80) no-repeat;
+	background-size: cover;
+	background-position: bottom center;
+	font-family: 'Lato', sans-serif;
+	color: white;
+}
+
+#content {
+	text-align: center;
+	padding-top: 20%;
+}
+
+h1 {
+	/*font-weight: 700;*/
+	font-size: 4em;
+	letter-spacing: 5px;
+}
+
+h3 {
+	letter-spacing: 1px;
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.navbar-default {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-brand, 
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > .active > a:hover {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navbar-default .navbar-brand:hover, 
+.navbar-default .navbar-brand:focus {
+	color: white;
+}

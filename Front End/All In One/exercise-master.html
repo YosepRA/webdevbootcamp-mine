@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patatap</title>
+  <script type="text/javascript" src="lib/scripts/paper-full.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/233-paperjs-exercise.css">
+ 
+  <script type="text/paperscript" canvas="myCanvas">
+  for (var x = 0; x < 1000; x += 100) {
+    var circle = new Path.Circle(new Point(x, 0), 10)
+    circle.fillColor = "purple"
+  }
+  </script>
+</head>
+<body>
+<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
