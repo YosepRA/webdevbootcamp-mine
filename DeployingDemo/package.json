@@ -1,0 +1,16 @@
+{
+  "name": "deployingdemo",
+  "version": "1.0.0",
+  "description": "Deploying App Demo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "YosepRA",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}
