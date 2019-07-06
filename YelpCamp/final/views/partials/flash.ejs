@@ -1,0 +1,11 @@
+<div class="container">
+    <% if (error.message.length !== 0) { %>
+      <section id="alertBox" class="alert alert-danger text-center" role="alert">
+        <%= error.message %>
+      </section>
+    <% } else if (success.message.length !== 0) { %>
+      <section id="alertBox" class="alert alert-success text-center" role="alert">
+        <%= success.message %>
+      </section>
+    <% } %>
+</div>
