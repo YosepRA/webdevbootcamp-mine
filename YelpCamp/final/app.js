@@ -10,7 +10,8 @@ const express = require('express'),
   methodOverride = require('method-override'),
   flash = require('connect-flash');
 
-const seedDB = require('./seeds');
+const seedDB = require('./seeds'),
+  port = process.env.PORT || 3000;
 
 const User = require('./models/user');
 
@@ -53,7 +54,7 @@ mongoose.connect('mongodb://localhost:27017/yelp_camp');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Database connection error!'));
 db.once('open', () => {
-  console.log('Database has been connected successfully!');
+  console.log('Database has connected successfully!');
 });
 
 // seedDB();
@@ -63,6 +64,6 @@ app.use(indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-app.listen(3000, () => {
-  console.log('YelpCamp Server has started!');
+app.listen(port, () => {
+  console.log(`YelpCamp Server has started at port ${port}`);
 });
